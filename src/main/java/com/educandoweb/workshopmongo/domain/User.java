@@ -18,9 +18,9 @@ public class User implements Serializable {
 	private String email;
 
 	// lazy = true -> Faz com que os posts sejam carregados apenas se explicitamente
-	// requisitados
+	// requisitados (user.getPosts()), caso contrário, traz apenas os ids
 	@DBRef(lazy = true)
-	private List<Post> post = new ArrayList<>();
+	private List<Post> posts = new ArrayList<>();
 
 	public User() {
 
@@ -57,12 +57,12 @@ public class User implements Serializable {
 		this.email = email;
 	}
 
-	public List<Post> getPost() {
-		return post;
+	public List<Post> getPosts() {
+		return posts;
 	}
 
-	public void setPost(List<Post> post) {
-		this.post = post;
+	public void setPost(List<Post> posts) {
+		this.posts = posts;
 	}
 
 	@Override
